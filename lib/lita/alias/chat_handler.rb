@@ -57,13 +57,12 @@ module Lita
 
       def trigger_alias(response)
         ac = alias_store.lookup(response.match_data[1])
-        puts "looked up"
         cmd = response.message.body.gsub(/^#{ac.command}/,"")
-        puts "got command"
+        puts ac.command
         puts cmd
+        puts "doing it now"
 
         message = Lita::Message.new(robot, "#{robot.mention_name} #{cmd}", response.message.source)
-        puts "send message"
         robot.receive(message)
       end
 
