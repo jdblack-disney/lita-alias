@@ -56,8 +56,10 @@ module Lita
       end
 
       def trigger_alias(response)
-        ac = alias_store.lookup(response.match_data[1])
-        cmd = response.message.body.gsub(/^#{ac.command}/,"")
+        aliasname = response.match_data[1]
+        ac = alias_store.lookup(aliasname)
+        cmd = response.message.body.gsub(/^#{aliasname}/,"#{ac.command}")
+        puts aliasname
         puts ac.command
         puts cmd
         puts "doing it now"
