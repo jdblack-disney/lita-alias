@@ -59,11 +59,6 @@ module Lita
         aliasname = response.match_data[1]
         ac = alias_store.lookup(aliasname)
         cmd = response.message.body.gsub(/^#{aliasname}/,"#{ac.command}")
-        puts aliasname
-        puts ac.command
-        puts cmd
-        puts "doing it now"
-
         message = Lita::Message.new(robot, "#{robot.mention_name} #{cmd}", response.message.source)
         robot.receive(message)
       end
