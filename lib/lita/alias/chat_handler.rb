@@ -67,7 +67,7 @@ module Lita
           message = 'No aliases have been saved'
         else
           message = aliases.map do |ac|
-            "!#{ac.name} => #{ac.command}"
+            "#{ac.name} => #{ac.command}"
           end
         end
 
@@ -94,8 +94,8 @@ module Lita
       def add_alias_route(aliased_command)
         return if alias_route_exists?(aliased_command)
 
-        self.class.route(/^!(#{aliased_command.name})/, :trigger_alias, command: true)
-        log.debug("Added route for alias '!#{aliased_command.name}'")
+        self.class.route(/^(#{aliased_command.name})/, :trigger_alias, command: true)
+        log.debug("Added route for alias '#{aliased_command.name}'")
       end
 
       def delete_alias_route(aliased_command)
