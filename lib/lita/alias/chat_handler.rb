@@ -94,7 +94,7 @@ module Lita
       def add_alias_route(aliased_command)
         return if alias_route_exists?(aliased_command)
 
-        self.class.route(/^(#{aliased_command.name})/, :trigger_alias, command: true)
+        self.class.route(/^(#{aliased_command.name})/, :trigger_alias)
         log.debug("Added route for alias '#{aliased_command.name}'")
       end
 
