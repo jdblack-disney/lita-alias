@@ -67,7 +67,7 @@ module Lita
           message = 'No aliases have been saved'
         else
           message = aliases.map do |ac|
-            "#{ac.name} => #{ac.command}"
+            "!#{ac.name} => #{ac.command}"
           end
         end
 
