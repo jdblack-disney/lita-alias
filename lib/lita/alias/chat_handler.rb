@@ -13,7 +13,7 @@ module Lita
 
       #########
       # Routes
-      route(/alias\s+add\s+(!?\w+)\s+(.+)/,
+      route(/alias\s+add\s+([[:punct:]]?\w+)\s+(.+)/,
             :add,
             help: { 'alias add NAME COMMAND' => 'Alias for sending COMMAND when NAME typed' }
            )
