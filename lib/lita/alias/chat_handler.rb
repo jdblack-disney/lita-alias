@@ -13,15 +13,15 @@ module Lita
 
       #########
       # Routes
-      route(/alias\s+add\s+(!?\w+)\s+(.*)/,
+      route(/^alias\s+add\s+(!?\w+)\s+(.*)/,
             :add,
             help: { 'alias add NAME COMMAND' => 'Alias for sending COMMAND when NAME typed' }
            )
-      route(/alias\s+list/,
+      route(/^alias\s+list/,
             :list,
             help: { 'alias list' => 'List all the saved aliases' }
            )
-      route(/alias\s+delete\s+(!?\w+)/,
+      route(/^alias\s+delete\s+(!?\w+)/,
             :delete,
             help: { 'alias delete NAME' => 'Delete the alias with NAME' }
            )
