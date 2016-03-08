@@ -39,7 +39,7 @@ module Lita
       # Route Handlers
 
       def add(response)
-        name = response.match_data[1]
+        name = '!' + response.match_data[1]
         command = response.match_data[2]
 
         # TODO: support multiple commands
