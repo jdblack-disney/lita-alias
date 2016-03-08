@@ -21,7 +21,7 @@ module Lita
             :list,
             help: { 'alias list' => 'List all the saved aliases' }
            )
-      route(/alias\s+delete\s+(\w+)/,
+      route(/alias\s+delete\s+(!?\w+)/,
             :delete,
             help: { 'alias delete NAME' => 'Delete the alias with NAME' }
            )
