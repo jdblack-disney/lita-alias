@@ -13,7 +13,7 @@ module Lita
 
       #########
       # Routes
-      route(/alias\s+add\s+([[:punct:]]?\w+)\s+(.+)/,
+      route(/alias\s+add\s+(\w+)\s+(.+)/,
             :add,
             help: { 'alias add NAME COMMAND' => 'Alias for sending COMMAND when NAME typed' }
            )
@@ -94,8 +94,8 @@ module Lita
       def add_alias_route(aliased_command)
         return if alias_route_exists?(aliased_command)
 
-        self.class.route(/^(#{aliased_command.name})/, :trigger_alias, command: true)
-        log.debug("Added route for alias '#{aliased_command.name}'")
+        self.class.route(/^!(#{aliased_command.name})/, :trigger_alias, command: true)
+        log.debug("Added route for alias '!#{aliased_command.name}'")
       end
 
       def delete_alias_route(aliased_command)
